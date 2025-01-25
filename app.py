@@ -93,7 +93,7 @@ def fetch_gpu_processes():
         return [
             {
                 "pid": p.split(", ")[0],
-                "name": p.split(", ")[1],
+                "name": p.split(", ")[1].split('/')[-1],  # Get last part after final /
                 "used_memory": p.split(", ")[2]
             }
             for p in processes
