@@ -447,10 +447,10 @@ def api_processes():
     return jsonify(fetch_gpu_processes())
 
 
-if __name__ == "__main__":
-    # Start background thread to periodically fetch GPU data
-    data_thread = Thread(target=fetch_gpu_data, daemon=True)
-    data_thread.start()
+# Start background thread to periodically fetch GPU data
+data_thread = Thread(target=fetch_gpu_data, daemon=True)
+data_thread.start()
 
+if __name__ == "__main__":
     # Run Flask app
     app.run(debug=True, host="0.0.0.0", port=5000)
